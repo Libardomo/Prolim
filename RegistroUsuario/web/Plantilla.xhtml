@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title><ui:insert name="TituloUno">prolim</ui:insert></title>
+        <script src="/js/Validar.js" language="javascript" type="text/javascript"></script>
+    </h:head>
+    <h:body>
+        <h1>
+            <ui:insert name="TituloPagina">Prolim</ui:insert>
+        </h1>
+
+        <h:form>  
+            <p:growl id="messages"/>
+
+            <p:menubar>
+                <p:menuitem value="Inicio" icon="ui-icon-home" outcome="Inicio"/>
+                <p:menuitem value="Catalogo" icon="ui-icon-cart" outcome="Catalogo"/>
+                <p:menuitem value="Ayuda" outcome="Ayuda" />
+                <p:menuitem value="Registro 2"  outcome="registroUser"/>
+                <p:menuitem value="Registrate" icon="" onclick="PF('regUsu').show();"/>
+
+                <f:facet name="options">
+                    <p:commandButton type="button" value="Iniciar Sesión" icon="ui-icon-person" onclick="PF('Insesion').show();"/>
+                </f:facet>
+            </p:menubar>
+        </h:form>
+
+        <h:form>
+            <p:dialog header="Iniciar Sesión" widgetVar="Insesion" modal="true" height="150" >
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Usuario"/>
+                    <p:inputText value="#{loginManagedBean.BLogin.usuario}" id="usuario" required="true" label="Usuario" onkeydown="return validarLetras()"/>
+                    <p:outputLabel value="Contraseña"/>
+                    <p:password value="#{loginManagedBean.BLogin.contrasenia}" id="contrasenia" required="true" label="Contraseña" onkeydown="return validarLetras()"/>
+                    <h:commandButton action="#{loginManagedBean.validarUsuario()}" value="Ingresar"/>                   
+                </h:panelGrid>
+            </p:dialog>   
+        </h:form>
+
+        <h:form>
+            <p:dialog header="Registro" widgetVar="regUsu" modal="true" height="300">
+
+                <h:panelGrid columns="2" >
+                    <h:outputLabel value="Usuario"/>
+                    <h:inputText value="#{registroManagedBean.BLogin.usuario}" id="Usuario"/>
+                    <h:outputLabel value="Contraseña"/>
+                    <h:inputSecret value="#{registroManagedBean.BLogin.contrasenia}" id="Contraseña"/>
+
+                    <h:outputLabel value="Nombre"/>
+                    <h:inputText value="#{registroManagedBean.BUsu.nombre}" id="Nombre"/>
+                    <h:outputLabel value="Apellido"/>
+                    <h:inputText value="#{registroManagedBean.BUsu.apellido}" id="Apellido"/>
+                    <h:outputLabel value="Correo"/>
+                    <h:inputText value="#{registroManagedBean.BUsu.correo}" id="Correo"/>
+                    <h:outputLabel value="Direccion" />
+                    <h:inputText value="#{registroManagedBean.BUsu.direccion}" id="Direccion"/>
+                    <h:outputLabel value="Telefono" />
+                    <h:inputText value="#{registroManagedBean.BUsu.telefono}" id="Telefono"/>       
+                    <h:outputLabel value="Numero Id Usuario" />
+                    <h:inputText value="#{registroManagedBean.BUsu.idUsuario}" id="idUsuario"/> 
+                    <h:commandButton value="Registrar" action="#{registroManagedBean.registroUsuarioBd()}" />
+                </h:panelGrid>
+            </p:dialog>
+        </h:form>
+
+        <div>
+            <ui:insert name="CuerpoPagina">Inicio</ui:insert>
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:body>
+        <h1>Registro Usuario</h1>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Nombre"/>
+                <h:inputText value="#{BUsu.nombre}" id="Nombre"/>
+                <h:outputLabel value="Apellido"/>
+                <h:inputText value="#{BUsu.apellido}" id="Apellido"/>
+                <h:outputLabel value="Correo"/>
+                <h:inputText value="#{BUsu.correo}" id="Correo"/>
+                <h:outputLabel value="Direccion" />
+                <h:inputText value="#{BUsu.direccion}" id="Direccion"/>
+                <h:outputLabel value="Telefono" />
+                <h:inputText value="#{BUsu.telefono}" id="Telefono"/>
+                <h:outputLabel value="IdUsuario" />
+                <h:inputText value="#{BUsu.idUsuario}" id="IdUsuario"/>
+
+                <h:commandButton value="Registrar" action="#{newJSFManagedBean.registroUsuarioBd()}"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title><ui:insert name="TituloUsuario"/>Prolim Usuario</title>
+    </h:head>
+    <h:body>
+        <ui:insert name="Titulo1">Usuario</ui:insert>
+        
+       <h:form>  
+            <p:growl id="messages"/>
+
+            <p:menubar>
+                <p:menuitem value="Inicio" icon="ui-icon-home" outcome="InicioCliente"/>
+                <p:menuitem value="Catalogo" icon="ui-icon-cart" outcome="CatalogoCliente"/>
+                <p:menuitem value="Ayuda" outcome="AyudaCliente" />
+                <p:menuitem value="Pedido" outcome="PedidoCliente" />
+                <p:menuitem value="Quejas y reclamos" outcome="QuejasCliente"/>
+
+                <f:facet name="options">
+                    <p:commandButton type="button" value="Cerrar Sesión" icon="ui-icon-extlink" p:outcome="Inicio"/>
+                </f:facet>
+            </p:menubar>
+        </h:form>
+        
+        <h:form>
+            <p:commandButton value="Actualizar mis datos" onclick="PF('Actualizar').show()"/>
+        </h:form>
+
+        <h:form>
+            <p:dialog header="Actualizar mis datos" widgetVar="Actualizar" modal="true" height="150" >
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Usuario"/>
+                    <p:inputText value="#{loginManagedBean.BLogin.usuario}" id="usuario"/>
+                    <p:outputLabel value="Contraseña"/>
+                    <p:password value="#{loginManagedBean.BLogin.contrasenia}" id="contrasenia"/>
+                    <h:commandButton action="#{loginManagedBean.modificarUsu()}" value="Actualizar Datos"/>                   
+                </h:panelGrid>
+            </p:dialog>   
+        </h:form>
+        
+        <ui:insert name="UltimoTitulo">Inicio</ui:insert>
+    </h:body>
+</html>
+

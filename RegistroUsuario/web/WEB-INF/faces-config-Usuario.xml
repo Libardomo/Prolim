@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>InicioCliente</from-outcome>
+            <to-view-id>/pantallas/PantallasCliente/InicioUsuario.xhtml</to-view-id>           
+        </navigation-case>       
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>CatalogoCliente</from-outcome>
+            <to-view-id>/pantallas/PantallasCliente/Catalogo.xhtml</to-view-id>           
+        </navigation-case>       
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>AyudaCliente</from-outcome>
+            <to-view-id>/pantallas/PantallasCliente/Ayuda.xhtml</to-view-id>           
+        </navigation-case>       
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>PedidoCliente</from-outcome>
+            <to-view-id>/pantallas/PantallasCliente/Pedido.xhtml</to-view-id>           
+        </navigation-case>       
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>QuejasCliente</from-outcome>
+            <to-view-id>/pantallas/PantallasCliente/QuejasyReclamos.xhtml</to-view-id>           
+        </navigation-case>       
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>plantillaCliente</from-outcome>
+            <to-view-id>/pantallas/PantallasCliente/PlantillaCliente.xhtml</to-view-id>           
+        </navigation-case>       
+    </navigation-rule>
+    
+</faces-config>
